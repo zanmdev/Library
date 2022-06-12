@@ -1,0 +1,38 @@
+:root{
+    --margin-width:400px; 
+}
+
+
+body{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+
+
+/*Header        */
+#header{
+
+    box-shadow: 0px 5px 3px rgb(168, 168, 168);
+}
+
+.header-container{
+    margin-left: var(--margin-width);
+    margin-right: var(--margin-width);
+}
+
+
+/*Main Container         */
+.main-content{
+
+    background-color: rgb(231, 224, 224);
+}
+
+/*Book Cards             */
+#books{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap:15px;
+}
+
