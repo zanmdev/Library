@@ -6,7 +6,9 @@
 :root{
     --card-font-size: 20px;
     --card-font-weight:400;
-    background-color: rgb(231, 224, 224);
+    --page-color: rgb(231, 224, 224);
+
+    background-color: var(--page-color);
 }
 
 
@@ -32,8 +34,23 @@
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
+}
 
+.add-btn{
+    margin-top:30px;
+    font-size: 24px;
+    background-color:  var(--page-color);
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 2px 6px;
+}
 
+.add-btn:hover{
+    background-color: rgb(136, 129, 129);
+}
+
+.add-btn:active{
+    background-color: rgb(202, 185, 185);
 }
 
 /*Book Cards             */
@@ -41,6 +58,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap:15px;
+    margin-top: 30px;
 }
 
 
@@ -59,7 +77,6 @@
 .buttons{
     display: flex;
     flex-direction: column;
-    margin-top: 15px;
     gap: 8px;
 }
 
