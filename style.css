@@ -1,38 +1,71 @@
-:root{
-    --margin-width:400px; 
-}
-
-
-body{
-    display: flex;
-    flex-direction: column;
+*{
     margin: 0;
+    padding: 0;
 }
+
+:root{
+    --card-font-size: 20px;
+    --card-font-weight:400;
+    background-color: rgb(231, 224, 224);
+}
+
+
+
 
 
 
 /*Header        */
 #header{
-
+    background-color: white;
     box-shadow: 0px 5px 3px rgb(168, 168, 168);
 }
 
 .header-container{
-    margin-left: var(--margin-width);
-    margin-right: var(--margin-width);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
 }
 
 
 /*Main Container         */
 .main-content{
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
 
-    background-color: rgb(231, 224, 224);
+
 }
 
 /*Book Cards             */
 #books{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap:15px;
 }
+
+
+.book{
+    font-size: var(--card-font-size);
+    font-weight: var(var(--card-font-weight));
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    gap:15px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 5px 5px black;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    gap: 8px;
+}
+
+.buttons > button {
+    font-size: var(--card-font-size);
+    font-weight: var(var(--card-font-weight));
+}
+
 

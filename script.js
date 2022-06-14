@@ -11,7 +11,9 @@ function Book(name,author,year, totalPages, pagesRead,hasBeenRead){
 }
 
 function addBookToLibrary(name,author,year,totalPages, pagesRead ,hasBeenRead){
+
     bookLibrary.push(new Book(name,author,year,totalPages, pagesRead ,hasBeenRead));
+    showBooksArray();
 }
 
 
@@ -22,16 +24,31 @@ function showBooksArray(){
     let index = -1;
     bookLibrary.forEach(book => {
         index++;
+
         let card = document.createElement("div");
+        let bookTitle = document.createElement("p");
+        let author = document.createElement("p");
+        let year = document.createElement("p");
+        let pages = document.createElement("p");
+        let buttonContainer = document.createElement("div");
+        let readButton = document.createElement("button");
+        let removeButton = document.createElement("button");
+        let container = document.getElementById("books");
+
+        
         card.classList.add("book");
+        bookTitle.classList.add("book-title");
+        author.classList.add("author");
+        year.classList.add("year");
         card.id  = index;
        
 
-        let text = document.createElement("p");
         text.innerText = book.name
+
+
         card.appendChild(text);
 
-        let container = document.getElementById("books");
+        
         container.appendChild(card);
         
 
