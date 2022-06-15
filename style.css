@@ -86,3 +86,40 @@
 }
 
 
+/*Modal      */
+
+.modal{
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    display: none;
+    position: fixed;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 100px;
+}
+
+.modal-content{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    margin: 0 auto;
+    padding: 25px;
+    width: 25%;
+    align-items: center;
+   
+}
+
+.entry-input:last-child{
+    flex-direction: row;
+    gap: 10px;
+}
+
+.entry-input{
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+    padding: 10px;
+}
+
+
