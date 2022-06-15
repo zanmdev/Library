@@ -4,11 +4,9 @@ let removeButtons = document.querySelectorAll("remove-btn");
 
 let modal = document.querySelector(".modal");
 let close = document.querySelector(".close-btn");
-
-
-
 let modalAdd = document.querySelector(".modal-add");
 
+let container = document.querySelector("#books");
 
 addBook.addEventListener("click", () =>{
     modal.style.display = "block";
@@ -16,7 +14,7 @@ addBook.addEventListener("click", () =>{
 
 close.addEventListener("click", () =>{
     modal.style.display = "none";
-})
+});
 
 modalAdd.addEventListener("click",()=>{
     modal.style.display = "none";
@@ -26,11 +24,14 @@ modalAdd.addEventListener("click",()=>{
     let inputAuthor = document.querySelector("#author").value;
     let inputPages = document.querySelector("#pages").value;
     let inputRead = document.querySelector("#read").checked;
-
-
-    
     addBookToLibrary(inputTitle, inputAuthor,inputYear,inputPages,inputRead);
-})
+});
+
+container.addEventListener("click" ,(e)=>{
+    if(e.target.classList.contains("remove-btn")){
+        removeBook(e.target.parentElement.parentElement.id);
+    }
+});
 
 function Book(name,author,year,totalPages,hasBeenRead){
 
@@ -94,7 +95,7 @@ function showBooksArray(){
         }
 
         removeButton.textContent = "Remove";
-        removeButton.classList.add = "remove-btn";
+        removeButton.classList.add("remove-btn");
         buttonContainer.classList.add("buttons");
         buttonContainer.appendChild(readButton);
         buttonContainer.appendChild(removeButton);
