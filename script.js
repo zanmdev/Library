@@ -16,6 +16,8 @@ close.addEventListener("click", () =>{
     modal.style.display = "none";
 });
 
+
+
 modalAdd.addEventListener("click",()=>{
     modal.style.display = "none";
     
@@ -30,6 +32,16 @@ modalAdd.addEventListener("click",()=>{
 container.addEventListener("click" ,(e)=>{
     if(e.target.classList.contains("remove-btn")){
         removeBook(e.target.parentElement.parentElement.id);
+    }
+
+    if (e.target.id === "unfinish-btn"){
+        e.target.id = "finish-btn";
+        e.target.textContent = "Finished";
+        setReadStatus(e.target.parentElement.parentElement.id);
+    }else if(e.target.id ==="finish-btn"){
+        e.target.id = "unfinish-btn";
+        e.target.textContent = "Not Finished";
+        setReadStatus(e.target.parentElement.parentElement.id);
     }
 });
 
@@ -87,15 +99,16 @@ function showBooksArray(){
         if(book.hasBeenRead){
             card.classList.add("read");
             readButton.textContent = "Finished";
-            readButton.classList.add("finish-btn");
+            readButton.id = "finish-btn";
         }else{
             card.classList.add("not-read");
             readButton.textContent = "Not Finished";
-            readButton.classList.add("unfinish-btn");
+            readButton.id ="unfinish-btn";
         }
 
         removeButton.textContent = "Remove";
         removeButton.classList.add("remove-btn");
+
         buttonContainer.classList.add("buttons");
         buttonContainer.appendChild(readButton);
         buttonContainer.appendChild(removeButton);
@@ -121,4 +134,8 @@ function removeBook(index){
     bookLibrary.splice(index,1);
     clearContainer()
     showBooksArray();
+}
+
+function setReadStatus(index){
+    bookLibrary[index].hasBeenRead = bookLibrary[index].hasBeenRead  == true ? false : true;
 }

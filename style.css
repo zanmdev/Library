@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 :root{
@@ -64,7 +65,7 @@
 
 .book{
     font-size: var(--card-font-size);
-    font-weight: var(var(--card-font-weight));
+    font-weight: var(--card-font-weight);
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -82,11 +83,46 @@
 
 .buttons > button {
     font-size: var(--card-font-size);
-    font-weight: var(var(--card-font-weight));
+    font-weight: var(--card-font-weight);
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+#unfinish-btn{
+    background-color: #ee7373;
+    
+
+}
+
+#unfinish-btn:hover{
+    background-color: #c95f5f;
+
+}
+
+#unfinish-btn:active{
+    background-color: #aa4949;
+
+}
+
+#finish-btn{
+    background-color: #73ee83;
+    
+}
+
+#finish-btn:hover{
+    background-color: #5fc964;
+
+}
+
+#finish-btn:active{
+    background-color: #54aa49;
+
 }
 
 
-/*Modal      */
+
+
+/*Modal  (Input Book Attributes)   */
 
 .modal{
     height: 100%;
@@ -107,6 +143,8 @@
     padding: 25px;
     width: 25%;
     align-items: center;
+    font-size: 18px;
+    font-weight: bold;
    
 }
 
@@ -144,5 +182,8 @@
     font-weight: var(--card-font-weight);
     display: flex;
     margin:auto;
+    padding: 2px 5px;
+    border: 1px solid black;
+    border-radius: 10px;
 }
 
