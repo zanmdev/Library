@@ -2,10 +2,18 @@ let bookLibrary = [];
 let addBook = document.querySelector(".add-btn");
 let removeButtons = document.querySelectorAll("remove-btn");
 
+let modal = document.querySelector(".modal");
+let close = document.querySelector(".close-btn");
+
+
 
 addBook.addEventListener("click", () =>{
-    console.log("TEST");
+    modal.style.display = "block";
 });
+
+close.addEventListener("click", () =>{
+    modal.style.display = "none";
+})
 
 function Book(name,author,year, totalPages,hasBeenRead){
     this.name = name;

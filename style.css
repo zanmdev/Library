@@ -110,10 +110,21 @@
    
 }
 
-.entry-input:last-child{
-    flex-direction: row;
-    gap: 10px;
+.close-btn{
+    font-size: 24px;
+    align-self: flex-end;
 }
+
+.close-btn:hover{
+    cursor: pointer;
+    color: rgb(116, 113, 113);
+}
+
+.close-btn:active{
+    cursor: pointer;
+    color: rgb(187, 183, 183);
+}
+
 
 .entry-input{
     display: flex;
@@ -122,4 +133,16 @@
     padding: 10px;
 }
 
+.check-box{
+    flex-direction: row;
+    gap: 10px;
+}
+
+
+.modal-add{
+    font-size: var(--card-font-size);
+    font-weight: var(--card-font-weight);
+    display: flex;
+    margin:auto;
+}
 
