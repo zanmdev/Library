@@ -1,5 +1,11 @@
 let bookLibrary = [];
+let addBook = document.querySelector(".add-btn");
+let removeButtons = document.querySelectorAll("remove-btn");
 
+
+addBook.addEventListener("click", () =>{
+    console.log("TEST");
+});
 
 function Book(name,author,year, totalPages,hasBeenRead){
     this.name = name;
@@ -60,7 +66,9 @@ function showBooksArray(){
             readButton.textContent = "Not Finished";
             readButton.classList.add("unfinish-btn");
         }
+
         removeButton.textContent = "Remove";
+        removeButton.classList.add = "remove-btn";
         buttonContainer.classList.add("buttons");
         buttonContainer.appendChild(readButton);
         buttonContainer.appendChild(removeButton);
@@ -68,13 +76,6 @@ function showBooksArray(){
 
         card.appendChild(buttonContainer);
 
-
-        
-
-
-        
-
-        
         container.appendChild(card);
         
 
@@ -87,4 +88,10 @@ function clearContainer(){
     while(item.firstChild){
         item.removeChild(item.firstChild);
     }
+}
+
+function removeBook(index){
+    bookLibrary.splice(index,1);
+    clearContainer()
+    showBooksArray();
 }
