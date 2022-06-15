@@ -7,6 +7,9 @@ let close = document.querySelector(".close-btn");
 
 
 
+let modalAdd = document.querySelector(".modal-add");
+
+
 addBook.addEventListener("click", () =>{
     modal.style.display = "block";
 });
@@ -15,12 +18,27 @@ close.addEventListener("click", () =>{
     modal.style.display = "none";
 })
 
-function Book(name,author,year, totalPages,hasBeenRead){
+modalAdd.addEventListener("click",()=>{
+    modal.style.display = "none";
+    
+    let inputTitle = document.querySelector("#title").value;
+    let inputYear = document.querySelector("#year").value;
+    let inputAuthor = document.querySelector("#author").value;
+    let inputPages = document.querySelector("#pages").value;
+    let inputRead = document.querySelector("#read").checked;
+
+
+    
+    addBookToLibrary(inputTitle, inputAuthor,inputYear,inputPages,inputRead);
+})
+
+function Book(name,author,year,totalPages,hasBeenRead){
+
     this.name = name;
     this.author = author;
     this.year = year;
-    this.hasBeenRead = hasBeenRead;
     this.totalPages = totalPages;
+    this.hasBeenRead = hasBeenRead;
     
 }
 
@@ -56,7 +74,7 @@ function showBooksArray(){
         bookTitle.textContent = book.name;
         author.textContent = book.author;
         year.textContent = book.year;
-        pages.textContent = book.pages;
+        pages.textContent = book.totalPages;
 
 
         card.appendChild(bookTitle);
@@ -64,7 +82,7 @@ function showBooksArray(){
         card.appendChild(year);
         card.appendChild(pages);
 
-        console.log(book.hasBeenRead);
+        
         if(book.hasBeenRead){
             card.classList.add("read");
             readButton.textContent = "Finished";
