@@ -31,6 +31,8 @@ modalAdd.addEventListener("click",(e)=>{
         let inputPages = document.querySelector("#pages").value;
         let inputRead = document.querySelector("#read").checked;
         addBookToLibrary(inputTitle, inputAuthor,inputYear,inputPages,inputRead);
+    }else{
+        form.reportValidity();
     }
 
     
