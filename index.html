@@ -31,14 +31,14 @@
 
                 <div class="entry-input">
                     <p>Release Year:</p>
-                    <input type="tel" name="year" id="year" required oninvalid="this.setCustomValidity('Enter Book Publish Year')"
-                    oninput="this.setCustomValidity('')">
+                    <input type="tel" name="year" id="year" required oninvalid="this.setCustomValidity('Enter a Valid Year')"
+                    oninput="this.setCustomValidity('')" pattern="[0-9]+">
                 </div>
 
                 <div class="entry-input">
                     <p>Number of Pages:</p>
-                    <input type="tel" name="pages" id="pages" required oninvalid="this.setCustomValidity('Enter Book Total Pages')"
-                    oninput="this.setCustomValidity('')">
+                    <input type="tel" name="pages" id="pages" required oninvalid="this.setCustomValidity('Enter a Number')"
+                    oninput="this.setCustomValidity('')" min="1" pattern="[0-9]+">
                 </div>
 
                 <div class="entry-input check-box">
