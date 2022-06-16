@@ -1,3 +1,4 @@
+//Page element declarations
 let bookLibrary = [];
 let addBook = document.querySelector(".add-btn");
 let removeButtons = document.querySelectorAll("remove-btn");
@@ -8,6 +9,8 @@ let modalAdd = document.querySelector(".modal-add");
 
 let container = document.querySelector("#books");
 
+
+//Event listeners to open and close the modal for book attribute inputs
 addBook.addEventListener("click", () =>{
     modal.style.display = "block";
 });
@@ -17,7 +20,8 @@ close.addEventListener("click", () =>{
 });
 
 
-
+//Add book form submit event listener
+//Checks if form is valid then adds the valid book to the array 
 modalAdd.addEventListener("click",(e)=>{
     let form = document.querySelector(".inputs");
     e.preventDefault();
@@ -39,6 +43,8 @@ modalAdd.addEventListener("click",(e)=>{
    
 });
 
+//Event listener on the book card container to access the dynamically created buttons (Remove and Read status)
+
 container.addEventListener("click" ,(e)=>{
     if(e.target.classList.contains("remove-btn")){
         removeBook(e.target.parentElement.parentElement.id);
@@ -49,6 +55,7 @@ container.addEventListener("click" ,(e)=>{
     }
 });
 
+//Book class 
 function Book(name,author,year,totalPages,hasBeenRead){
 
     this.name = name;
@@ -58,6 +65,7 @@ function Book(name,author,year,totalPages,hasBeenRead){
     this.hasBeenRead = hasBeenRead;
     
 }
+
 
 function addBookToLibrary(name,author,year,totalPages ,hasBeenRead){
 
@@ -71,6 +79,7 @@ function showBooksArray(){
     clearContainer()
 
     let index = -1;
+    //Create book cards and append them to main container
     bookLibrary.forEach(book => {
         index++;
 
