@@ -44,13 +44,7 @@ container.addEventListener("click" ,(e)=>{
         removeBook(e.target.parentElement.parentElement.id);
     }
 
-    if (e.target.id === "unfinish-btn"){
-        e.target.id = "finish-btn";
-        e.target.textContent = "Finished";
-        setReadStatus(e.target.parentElement.parentElement.id);
-    }else if(e.target.id ==="finish-btn"){
-        e.target.id = "unfinish-btn";
-        e.target.textContent = "Not Finished";
+    if (e.target.id === "unfinish-btn" || e.target.id ==="finish-btn"){
         setReadStatus(e.target.parentElement.parentElement.id);
     }
 });
@@ -148,4 +142,6 @@ function removeBook(index){
 
 function setReadStatus(index){
     bookLibrary[index].hasBeenRead = bookLibrary[index].hasBeenRead  == true ? false : true;
+    clearContainer();
+    showBooksArray();
 }
