@@ -18,15 +18,23 @@ close.addEventListener("click", () =>{
 
 
 
-modalAdd.addEventListener("click",()=>{
-    modal.style.display = "none";
+modalAdd.addEventListener("click",(e)=>{
+    let form = document.querySelector(".inputs");
+    e.preventDefault();
+
+    if(form.checkValidity()){
+        modal.style.display = "none";
     
-    let inputTitle = document.querySelector("#title").value;
-    let inputYear = document.querySelector("#year").value;
-    let inputAuthor = document.querySelector("#author").value;
-    let inputPages = document.querySelector("#pages").value;
-    let inputRead = document.querySelector("#read").checked;
-    addBookToLibrary(inputTitle, inputAuthor,inputYear,inputPages,inputRead);
+        let inputTitle = document.querySelector("#title").value;
+        let inputYear = document.querySelector("#year").value;
+        let inputAuthor = document.querySelector("#author").value;
+        let inputPages = document.querySelector("#pages").value;
+        let inputRead = document.querySelector("#read").checked;
+        addBookToLibrary(inputTitle, inputAuthor,inputYear,inputPages,inputRead);
+    }
+
+    
+   
 });
 
 container.addEventListener("click" ,(e)=>{
@@ -85,9 +93,9 @@ function showBooksArray(){
         card.id  = index;
 
         bookTitle.textContent = book.name;
-        author.textContent = book.author;
-        year.textContent = book.year;
-        pages.textContent = book.totalPages;
+        author.textContent = "By: " +book.author;
+        year.textContent = "Published: "+book.year;
+        pages.textContent = book.totalPages + " Pages";
 
 
         card.appendChild(bookTitle);
