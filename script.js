@@ -9,6 +9,10 @@ let modalAdd = document.querySelector(".modal-add");
 
 let container = document.querySelector("#books");
 
+let form = document.querySelector(".inputs");
+let input = document.querySelectorAll(".validate");
+let bookTitle = document.querySelector("#title");
+let errorTitle = document.querySelector(".title-error");
 
 //Event listeners to open and close the modal for book attribute inputs
 addBook.addEventListener("click", () =>{
@@ -19,29 +23,35 @@ close.addEventListener("click", () =>{
     modal.style.display = "none";
 });
 
+input.forEach(field => {
+    field.addEventListener('input', function (event) {
+        if(field.validity.valid){
+            field.nextElementSibling.textContent = "";
+        }else{
+            showError(field);
+        }
+    })
+});
 
 //Add book form submit event listener
 //Checks if form is valid then adds the valid book to the array 
-modalAdd.addEventListener("click",(e)=>{
-    let form = document.querySelector(".inputs");
-    e.preventDefault();
-
-    if(form.checkValidity()){
-        modal.style.display = "none";
-    
-        let inputTitle = document.querySelector("#title").value;
-        let inputYear = document.querySelector("#year").value;
-        let inputAuthor = document.querySelector("#author").value;
-        let inputPages = document.querySelector("#pages").value;
-        let inputRead = document.querySelector("#read").checked;
-        addBookToLibrary(inputTitle, inputAuthor,inputYear,inputPages,inputRead);
-    }else{
-        form.reportValidity();
+form.addEventListener("submit" ,function(event){
+    let valid = true;
+    event.preventDefault();
+    input.forEach(field => {
+        if(!field.validity.valid){
+            showError(field);
+            valid = false;
+        }else if(field.validity.valid){
+            field.nextElementSibling.textContent = "";
+        }
+    });
+    if(valid){
+        getBookInput();
     }
-
-    
-   
 });
+
+
 
 //Event listener on the book card container to access the dynamically created buttons (Remove and Read status)
 
@@ -66,6 +76,17 @@ function Book(name,author,year,totalPages,hasBeenRead){
     
 }
 
+function getBookInput(){
+
+    modal.style.display = "none";
+    
+    let inputTitle = document.querySelector("#title").value;
+    let inputYear = document.querySelector("#year").value;
+    let inputAuthor = document.querySelector("#author").value;
+    let inputPages = document.querySelector("#pages").value;
+    let inputRead = document.querySelector("#read").checked;
+    addBookToLibrary(inputTitle, inputAuthor,inputYear,inputPages,inputRead);
+}
 
 function addBookToLibrary(name,author,year,totalPages ,hasBeenRead){
 
@@ -153,4 +174,11 @@ function setReadStatus(index){
     bookLibrary[index].hasBeenRead = bookLibrary[index].hasBeenRead  == true ? false : true;
     clearContainer();
     showBooksArray();
+}
+
+function showError(field){
+    if(field.validity.valueMissing){
+        const errorText = field.nextElementSibling;
+        errorText.textContent = "Please Fill In Field";
+    }
 }

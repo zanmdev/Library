@@ -175,6 +175,14 @@ input:invalid{
     border: 1px solid red;
 }
 
+.error-text{
+    color: #ee7373;
+    font-size: 14px;
+    position: absolute;
+    margin-top: 45px;
+    font-weight: bold;
+}
+
 .check-box{
     flex-direction: row;
     gap: 10px;

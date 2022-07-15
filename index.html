@@ -16,29 +16,29 @@
     <div class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
-            <form class="inputs" >
+            <form class="inputs" novalidate>
                 <div class="entry-input">
                     <p>Book Title:</p>
-                    <input type="text" name="title" id="title" required oninvalid="this.setCustomValidity('Enter Book Name')"
-                    oninput="this.setCustomValidity('')">
+                    <input type="text" name="title" id="title" class="validate" required>
+                    <span class="error-text"></span>
                 </div>
 
                 <div class="entry-input">
                     <p>Book Author:</p>
-                    <input type="text" name="author" id="author" required oninvalid="this.setCustomValidity('Enter Book Author')"
-                    oninput="this.setCustomValidity('')">
+                    <input type="text" name="author" id="author" class="validate" required>
+                    <span class="error-text"></span>
                 </div>
 
                 <div class="entry-input">
                     <p>Release Year:</p>
-                    <input type="tel" name="year" id="year" required oninvalid="this.setCustomValidity('Enter a Valid Year')"
-                    oninput="this.setCustomValidity('')" pattern="[0-9]+">
+                    <input type="tel" name="year" id="year" class="validate" required pattern="[0-9]+">
+                    <span class="error-text"></span>
                 </div>
 
                 <div class="entry-input">
                     <p>Number of Pages:</p>
-                    <input type="tel" name="pages" id="pages" required oninvalid="this.setCustomValidity('Enter a Number')"
-                    oninput="this.setCustomValidity('')" min="1" pattern="[0-9]+">
+                    <input type="tel" name="pages" id="pages" required min="1" class="validate" pattern="[0-9]+">
+                    <span class="error-text"></span>
                 </div>
 
                 <div class="entry-input check-box">
